@@ -19,6 +19,8 @@
     section{ padding:60px 0; }
     .section-title h2{ font-size:32px; color:#111D5E; text-align:center; margin-bottom:40px; }
 
+    .about{ text-align:center; max-width:800px; margin:auto; }
+
     .skills, .projects, .blog-posts{ 
       display:grid; 
       grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); 
@@ -34,8 +36,14 @@
 
     .blog-card img{ width:100%; height:200px; object-fit:cover; border-radius:10px 10px 0 0; }
 
-    /* Footer */
+    .btn{ 
+      display:inline-block; margin-top:20px; padding:14px 30px; 
+      background:#fff; color:#111D5E; text-decoration:none; 
+      border-radius:50px; font-weight:600; 
+    }
+
     footer{ background:#111D5E; color:#fff; text-align:center; padding:25px 0; }
+    .footer-links a{ color:#fff; text-decoration:underline; cursor:pointer; }
 
     /* Login Modal */
     #loginModal{ 
@@ -43,20 +51,20 @@
       background:rgba(0,0,0,0.85); z-index:1000; justify-content:center; align-items:center; 
     }
     .modal-content{ 
-      background:#fff; padding:25px; border-radius:15px; width:90%; max-width:380px; 
+      background:#fff; padding:25px; border-radius:15px; width:90%; max-width:380px; text-align:center;
     }
 
     /* Admin Panel */
     #adminPanel{ 
       display:none; background:#fff; padding:25px; border-radius:15px; 
-      box-shadow:0 5px 20px rgba(0,0,0,.1); margin:20px auto; 
+      box-shadow:0 5px 20px rgba(0,0,0,.1); margin:20px auto; max-width:800px;
     }
 
     .admin-form input, .admin-form textarea, .admin-form label{ 
       width:100%; padding:12px; margin:8px 0; border:1px solid #ddd; border-radius:8px; 
     }
 
-    button{ cursor:pointer; }
+    button{ cursor:pointer; font-size:16px; }
 
     @media(max-width:768px){
       .hero-text h1{ font-size:36px; }
@@ -74,7 +82,6 @@
 </head>
 <body>
 
-  <!-- Existing Header & Sections (unchanged) -->
   <header>
     <div class="container hero">
       <div class="hero-text">
@@ -89,7 +96,6 @@
     </div>
   </header>
 
-  <!-- About -->
   <section>
     <div class="container">
       <div class="section-title"><h2>About Me</h2></div>
@@ -99,7 +105,6 @@
     </div>
   </section>
 
-  <!-- Expertise -->
   <section style="background:#fff;">
     <div class="container">
       <div class="section-title"><h2>My Expertise</h2></div>
@@ -112,7 +117,6 @@
     </div>
   </section>
 
-  <!-- Recent Projects -->
   <section>
     <div class="container">
       <div class="section-title"><h2>Recent Projects</h2></div>
@@ -124,7 +128,6 @@
     </div>
   </section>
 
-<!-- Blog Section -->
   <section id="blog" style="background:#fff;">
     <div class="container">
       <div class="section-title"><h2>Blog Posts</h2></div>
@@ -132,11 +135,10 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" style="background:#fff;">
     <div class="container">
       <div class="section-title"><h2>Contact Me</h2></div>
-      <div class="contact">
+      <div class="contact" style="text-align:center;">
         <p>Email: sayerabdulhaque681@gmail.com</p>
         <p>Phone: +8801763795373</p>
         <p><a href="#">LinkedIn</a> | <a href="#">Facebook</a> | <a href="#">WhatsApp</a></p>
@@ -144,7 +146,6 @@
     </div>
   </section>
 
-  <!-- Footer with Login -->
   <footer>
     <div class="container">
       <p>© 2026 Abdul Haque Sayer | SEO & ORM Specialist</p>
@@ -153,7 +154,8 @@
       </div>
     </div>
   </footer>
-<!-- Login Modal -->
+
+  <!-- Login Modal -->
   <div id="loginModal">
     <div class="modal-content">
       <h2>Admin Login</h2>
@@ -173,7 +175,7 @@
       <input type="file" id="postImageUpload" accept="image/*">
       <div id="imagePreview" style="margin:15px 0; text-align:center;"></div>
 
-      <textarea id="postDesc" rows="4" placeholder="Description"></textarea>
+      <textarea id="postDesc" rows="4" placeholder="Write description here..."></textarea>
       
       <button onclick="addBlogPost()" style="background:#111D5E; color:white; padding:14px; width:100%; border:none; border-radius:8px; margin-top:10px;">Add Post</button>
       <button onclick="logout()" style="background:#E02252; color:white; padding:14px; width:100%; border:none; border-radius:8px; margin-top:10px;">Logout</button>
@@ -198,7 +200,7 @@
         isLoggedIn = true;
         hideLogin();
         document.getElementById('adminPanel').style.display = 'block';
-        window.scrollTo({ top: document.getElementById('adminPanel').offsetTop - 50, behavior: 'smooth' });
+        document.getElementById('adminPanel').scrollIntoView({ behavior: "smooth" });
       } else {
         alert("❌ Wrong Password!");
       }
@@ -209,7 +211,7 @@
       document.getElementById('adminPanel').style.display = 'none';
     }
 
-    // Image Upload + Preview
+    // Image Upload
     document.getElementById('postImageUpload').addEventListener('change', function(e) {
       const file = e.target.files[0];
       if (!file) return;
@@ -235,7 +237,7 @@
       const desc = document.getElementById('postDesc').value.trim();
 
       if (!title || !desc || !selectedImageBase64) {
-        alert("Title, Description এবং একটি ছবি দিতে হবে!");
+        alert("Title, Description এবং Image দিতে হবে!");
         return;
       }
 
@@ -243,7 +245,7 @@
       posts.unshift({ title, image: selectedImageBase64, description: desc });
       localStorage.setItem('blogPosts', JSON.stringify(posts));
 
-      // Clear
+      // Clear Form
       document.getElementById('postTitle').value = '';
       document.getElementById('postDesc').value = '';
       document.getElementById('postImageUpload').value = '';
@@ -251,7 +253,7 @@
       selectedImageBase64 = null;
 
       loadBlogPosts();
-      alert("✅ Post Added Successfully!");
+      alert("✅ Blog Post Added Successfully!");
     }
 
     function loadBlogPosts() {
@@ -260,7 +262,7 @@
       const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
 
       if (posts.length === 0) {
-        container.innerHTML = '<p style="text-align:center; color:#777; grid-column:1/-1;">No blog posts yet.</p>';
+        container.innerHTML = '<p style="text-align:center; color:#777; grid-column:1/-1; padding:30px;">No blog posts yet.</p>';
         return;
       }
 
@@ -270,7 +272,7 @@
         div.innerHTML = `
           <img src="${post.image}" alt="${post.title}">
           <div style="padding:15px;">
-            <h3 style="margin:10px 0;">${post.title}</h3>
+            <h3 style="margin:10px 0; color:#111D5E;">${post.title}</h3>
             <p>${post.description}</p>
           </div>
         `;
@@ -278,6 +280,7 @@
       });
     }
 
+    // Initialize
     window.onload = loadBlogPosts;
   </script>
 </body>
