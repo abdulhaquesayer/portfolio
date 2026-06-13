@@ -1,287 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abdul Haque Sayer | SEO & ORM Specialist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
-    body{ background:#f8f9fc; color:#333; line-height:1.6; }
-    .container{ width:90%; max-width:1200px; margin:auto; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdul Haque Sayer | SEO & ORM Specialist</title>
 
-    header{ background:linear-gradient(135deg,#111D5E,#E02252); color:#fff; padding:80px 0; }
-    .hero{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
-    .hero-text h1{ font-size:48px; margin-bottom:10px; }
-    .hero-text h3{ font-size:22px; color:#ffd700; }
-    .hero-image img{ width:280px; border-radius:50%; border:6px solid #fff; box-shadow:0 10px 30px rgba(0,0,0,.2); }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    section{ padding:60px 0; }
-    .section-title h2{ font-size:32px; color:#111D5E; text-align:center; margin-bottom:40px; }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-    .about{ text-align:center; max-width:800px; margin:auto; }
+body{
+    background:#f8f9fc;
+    color:#333;
+}
 
-    .skills, .projects, .blog-posts{ 
-      display:grid; 
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); 
-      gap:20px; 
-    }
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
 
-    .skill-box, .project, .blog-card{ 
-      background:#fff; 
-      padding:25px; 
-      border-radius:15px; 
-      box-shadow:0 5px 15px rgba(0,0,0,.08); 
-    }
+header{
+    background:linear-gradient(135deg,#111D5E,#E02252);
+    color:#fff;
+    padding:100px 0;
+}
 
-    .blog-card img{ width:100%; height:200px; object-fit:cover; border-radius:10px 10px 0 0; }
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
 
-    .btn{ 
-      display:inline-block; margin-top:20px; padding:14px 30px; 
-      background:#fff; color:#111D5E; text-decoration:none; 
-      border-radius:50px; font-weight:600; 
-    }
+.hero-text h1{
+    font-size:55px;
+    margin-bottom:10px;
+}
 
-    footer{ background:#111D5E; color:#fff; text-align:center; padding:25px 0; }
-    .footer-links a{ color:#fff; text-decoration:underline; cursor:pointer; }
+.hero-text h3{
+    font-size:25px;
+    color:#ffd700;
+    margin-bottom:20px;
+}
 
-    /* Login Modal */
-    #loginModal{ 
-      display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
-      background:rgba(0,0,0,0.85); z-index:1000; justify-content:center; align-items:center; 
-    }
-    .modal-content{ 
-      background:#fff; padding:25px; border-radius:15px; width:90%; max-width:380px; text-align:center;
-    }
+.hero-text p{
+    max-width:600px;
+    line-height:1.8;
+}
 
-    /* Admin Panel */
-    #adminPanel{ 
-      display:none; background:#fff; padding:25px; border-radius:15px; 
-      box-shadow:0 5px 20px rgba(0,0,0,.1); margin:20px auto; max-width:800px;
-    }
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
+    background:#fff;
+    color:#111D5E;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
 
-    .admin-form input, .admin-form textarea, .admin-form label{ 
-      width:100%; padding:12px; margin:8px 0; border:1px solid #ddd; border-radius:8px; 
-    }
+.btn:hover{
+    transform:translateY(-3px);
+}
 
-    button{ cursor:pointer; font-size:16px; }
+.hero-image img{
+    width:300px;
+    border-radius:50%;
+    border:6px solid #fff;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
 
-    @media(max-width:768px){
-      .hero-text h1{ font-size:36px; }
-      .hero-text h3{ font-size:20px; }
-      .hero-image img{ width:220px; }
-      section{ padding:50px 0; }
-      .section-title h2{ font-size:28px; }
-    }
+section{
+    padding:80px 0;
+}
 
-    @media(max-width:480px){
-      .hero{ flex-direction:column; text-align:center; }
-      .hero-image{ margin-top:20px; }
-    }
-  </style>
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:38px;
+    color:#111D5E;
+}
+
+.about{
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.skill-box{
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    border:2px solid #eee;
+    transition:.3s;
+}
+
+.skill-box:hover{
+    border-color:#E02252;
+    transform:translateY(-5px);
+}
+
+.skill-box h3{
+    color:#111D5E;
+    margin-bottom:10px;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.project{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    border-left:5px solid #E02252;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact a{
+    color:#E02252;
+    text-decoration:none;
+    font-weight:600;
+}
+
+footer{
+    background:#111D5E;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+
+.hero{
+    text-align:center;
+    justify-content:center;
+}
+
+.hero-text h1{
+    font-size:40px;
+}
+
+.hero-image{
+    margin-top:30px;
+}
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="container hero">
-      <div class="hero-text">
-        <h1>Abdul Haque Sayer</h1>
-        <h3>SEO & ORM Specialist</h3>
-        <p>Helping brands dominate search engines, build a strong online reputation, and grow their digital presence through proven SEO strategies and ORM solutions.</p>
-        <a href="#contact" class="btn">Hire Me</a>
-      </div>
-      <div class="hero-image">
-        <img src="https://avatars.githubusercontent.com/u/292771007?s=400&v=4" alt="Profile">
-      </div>
-    </div>
-  </header>
+<header>
+<div class="container hero">
 
-  <section>
-    <div class="container">
-      <div class="section-title"><h2>About Me</h2></div>
-      <div class="about">
-        <p>I am Abdul Haque Sayer, a passionate SEO & Online Reputation Management Specialist. I help businesses improve search rankings, increase organic traffic, and maintain a positive online reputation.</p>
-      </div>
-    </div>
-  </section>
+<div class="hero-text">
+<h1>Abdul Haque Sayer</h1>
+<h3>SEO & ORM Specialist</h3>
 
-  <section style="background:#fff;">
-    <div class="container">
-      <div class="section-title"><h2>My Expertise</h2></div>
-      <div class="skills">
-        <div class="skill-box"><h3>Technical SEO</h3><p>Website audit, indexing, speed optimization and technical improvements.</p></div>
-        <div class="skill-box"><h3>On-Page SEO</h3><p>Keyword optimization, content strategy and search visibility growth.</p></div>
-        <div class="skill-box"><h3>ORM</h3><p>Online reputation management and brand trust building.</p></div>
-        <div class="skill-box"><h3>Local SEO</h3><p>Google Business Profile optimization and local ranking improvements.</p></div>
-      </div>
-    </div>
-  </section>
+<p>
+Helping brands dominate search engines, build a strong online reputation,
+and grow their digital presence through proven SEO strategies and ORM solutions.
+</p>
 
-  <section>
-    <div class="container">
-      <div class="section-title"><h2>Recent Projects</h2></div>
-      <div class="projects">
-        <div class="project"><h3>E-commerce SEO Growth</h3><p>Increased organic traffic and improved search rankings through strategic SEO implementation.</p></div>
-        <div class="project"><h3>Brand Reputation Recovery</h3><p>Managed and improved online reputation for a growing business.</p></div>
-        <div class="project"><h3>Local Business Ranking</h3><p>Achieved top local search visibility with Local SEO strategies.</p></div>
-      </div>
-    </div>
-  </section>
+<a href="#contact" class="btn">Hire Me</a>
+</div>
 
-  <section id="blog" style="background:#fff;">
-    <div class="container">
-      <div class="section-title"><h2>Blog Posts</h2></div>
-      <div class="blog-posts" id="blogContainer"></div>
-    </div>
-  </section>
+<div class="hero-image">
+<img src="https://avatars.githubusercontent.com/u/292771007?s=400&v=4" alt="Profile">
+</div>
 
-  <section id="contact" style="background:#fff;">
-    <div class="container">
-      <div class="section-title"><h2>Contact Me</h2></div>
-      <div class="contact" style="text-align:center;">
-        <p>Email: sayerabdulhaque681@gmail.com</p>
-        <p>Phone: +8801763795373</p>
-        <p><a href="#">LinkedIn</a> | <a href="#">Facebook</a> | <a href="#">WhatsApp</a></p>
-      </div>
-    </div>
-  </section>
+</div>
+</header>
 
-  <footer>
-    <div class="container">
-      <p>© 2026 Abdul Haque Sayer | SEO & ORM Specialist</p>
-      <div class="footer-links">
-        <a onclick="showLogin()">Admin Login</a>
-      </div>
-    </div>
-  </footer>
+<section>
+<div class="container">
+<div class="section-title">
+<h2>About Me</h2>
+</div>
 
-  <!-- Login Modal -->
-  <div id="loginModal">
-    <div class="modal-content">
-      <h2>Admin Login</h2>
-      <input type="password" id="passwordInput" placeholder="Enter Password (112233)" onkeypress="if(event.key==='Enter') login()">
-      <br><br>
-      <button onclick="login()" style="background:#E02252; color:white; padding:12px 30px; border:none; border-radius:8px; width:100%;">Login</button>
-    </div>
-  </div>
+<div class="about">
+<p>
+I am Abdul Haque Sayer, a passionate SEO & Online Reputation Management Specialist.
+I help businesses improve search rankings, increase organic traffic, and maintain a positive online reputation.
+</p>
+</div>
+</div>
+</section>
 
-  <!-- Admin Panel -->
-  <div id="adminPanel" class="container">
-    <h2 style="text-align:center; margin-bottom:20px;">Add New Blog Post</h2>
-    <div class="admin-form">
-      <input type="text" id="postTitle" placeholder="Blog Title">
-      
-      <label>Upload Image:</label>
-      <input type="file" id="postImageUpload" accept="image/*">
-      <div id="imagePreview" style="margin:15px 0; text-align:center;"></div>
+<section style="background:#fff;">
+<div class="container">
+<div class="section-title">
+<h2>My Expertise</h2>
+</div>
 
-      <textarea id="postDesc" rows="4" placeholder="Write description here..."></textarea>
-      
-      <button onclick="addBlogPost()" style="background:#111D5E; color:white; padding:14px; width:100%; border:none; border-radius:8px; margin-top:10px;">Add Post</button>
-      <button onclick="logout()" style="background:#E02252; color:white; padding:14px; width:100%; border:none; border-radius:8px; margin-top:10px;">Logout</button>
-    </div>
-  </div>
+<div class="skills">
 
-  <script>
-    let isLoggedIn = false;
-    let selectedImageBase64 = null;
+<div class="skill-box">
+<h3>Technical SEO</h3>
+<p>Website audit, indexing, speed optimization and technical improvements.</p>
+</div>
 
-    function showLogin() {
-      document.getElementById('loginModal').style.display = 'flex';
-    }
+<div class="skill-box">
+<h3>On-Page SEO</h3>
+<p>Keyword optimization, content strategy and search visibility growth.</p>
+</div>
 
-    function hideLogin() {
-      document.getElementById('loginModal').style.display = 'none';
-      document.getElementById('passwordInput').value = '';
-    }
+<div class="skill-box">
+<h3>ORM</h3>
+<p>Online reputation management and brand trust building.</p>
+</div>
 
-    function login() {
-      if (document.getElementById('passwordInput').value === "112233") {
-        isLoggedIn = true;
-        hideLogin();
-        document.getElementById('adminPanel').style.display = 'block';
-        document.getElementById('adminPanel').scrollIntoView({ behavior: "smooth" });
-      } else {
-        alert("❌ Wrong Password!");
-      }
-    }
+<div class="skill-box">
+<h3>Local SEO</h3>
+<p>Google Business Profile optimization and local ranking improvements.</p>
+</div>
 
-    function logout() {
-      isLoggedIn = false;
-      document.getElementById('adminPanel').style.display = 'none';
-    }
+</div>
+</div>
+</section>
 
-    // Image Upload
-    document.getElementById('postImageUpload').addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      if (!file) return;
+<section>
+<div class="container">
+<div class="section-title">
+<h2>Recent Projects</h2>
+</div>
 
-      if (file.size > 5 * 1024 * 1024) {
-        alert("Image size must be less than 5MB");
-        return;
-      }
+<div class="projects">
 
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        selectedImageBase64 = event.target.result;
-        document.getElementById('imagePreview').innerHTML = 
-          `<img src="${selectedImageBase64}" style="max-width:100%; max-height:220px; border-radius:10px; border:2px solid #ddd;">`;
-      };
-      reader.readAsDataURL(file);
-    });
+<div class="project">
+<h3>E-commerce SEO Growth</h3>
+<p>Increased organic traffic and improved search rankings through strategic SEO implementation.</p>
+</div>
 
-    function addBlogPost() {
-      if (!isLoggedIn) return alert("Please login first!");
+<div class="project">
+<h3>Brand Reputation Recovery</h3>
+<p>Managed and improved online reputation for a growing business.</p>
+</div>
 
-      const title = document.getElementById('postTitle').value.trim();
-      const desc = document.getElementById('postDesc').value.trim();
+<div class="project">
+<h3>Local Business Ranking</h3>
+<p>Achieved top local search visibility with Local SEO strategies.</p>
+</div>
 
-      if (!title || !desc || !selectedImageBase64) {
-        alert("Title, Description এবং Image দিতে হবে!");
-        return;
-      }
+</div>
+</div>
+</section>
 
-      let posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-      posts.unshift({ title, image: selectedImageBase64, description: desc });
-      localStorage.setItem('blogPosts', JSON.stringify(posts));
+<section id="contact" style="background:#fff;">
+<div class="container">
+<div class="section-title">
+<h2>Contact Me</h2>
+</div>
 
-      // Clear Form
-      document.getElementById('postTitle').value = '';
-      document.getElementById('postDesc').value = '';
-      document.getElementById('postImageUpload').value = '';
-      document.getElementById('imagePreview').innerHTML = '';
-      selectedImageBase64 = null;
+<div class="contact">
+<p>Email: sayerabdulhaque681@gmail.com</p>
+<p>Phone: +8801763795373</p>
+<p>
+<a href="#">LinkedIn</a> |
+<a href="#">Facebook</a> |
+<a href="#">WhatsApp</a>
+</p>
+</div>
 
-      loadBlogPosts();
-      alert("✅ Blog Post Added Successfully!");
-    }
+</div>
+</section>
 
-    function loadBlogPosts() {
-      const container = document.getElementById('blogContainer');
-      container.innerHTML = '';
-      const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+<footer>
+<p>© 2026 Abdul Haque Sayer | SEO & ORM Specialist</p>
+</footer>
 
-      if (posts.length === 0) {
-        container.innerHTML = '<p style="text-align:center; color:#777; grid-column:1/-1; padding:30px;">No blog posts yet.</p>';
-        return;
-      }
-
-      posts.forEach(post => {
-        const div = document.createElement('div');
-        div.className = 'blog-card';
-        div.innerHTML = `
-          <img src="${post.image}" alt="${post.title}">
-          <div style="padding:15px;">
-            <h3 style="margin:10px 0; color:#111D5E;">${post.title}</h3>
-            <p>${post.description}</p>
-          </div>
-        `;
-        container.appendChild(div);
-      });
-    }
-
-    // Initialize
-    window.onload = loadBlogPosts;
-  </script>
 </body>
 </html>
