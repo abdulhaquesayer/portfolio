@@ -4,56 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abdul Haque Sayer | SEO & ORM Specialist</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
-    body{ background:#f8f9fc; color:#333; }
+    body{ background:#f8f9fc; color:#333; line-height:1.6; }
     .container{ width:90%; max-width:1200px; margin:auto; }
-    header{ background:linear-gradient(135deg,#111D5E,#E02252); color:#fff; padding:100px 0; }
-    .hero{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
-    .hero-text h1{ font-size:55px; margin-bottom:10px; }
-    .hero-text h3{ font-size:25px; color:#ffd700; margin-bottom:20px; }
-    .hero-text p{ max-width:600px; line-height:1.8; }
-    .btn{ display:inline-block; margin-top:25px; padding:14px 30px; background:#fff; color:#111D5E; text-decoration:none; border-radius:50px; font-weight:600; transition:.3s; }
-    .btn:hover{ transform:translateY(-3px); }
-    .hero-image img{ width:300px; border-radius:50%; border:6px solid #fff; box-shadow:0 10px 30px rgba(0,0,0,.2); }
 
-    section{ padding:80px 0; }
-    .section-title{ text-align:center; margin-bottom:50px; }
-    .section-title h2{ font-size:38px; color:#111D5E; }
+    header{ background:linear-gradient(135deg,#111D5E,#E02252); color:#fff; padding:80px 0; }
+    .hero{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+    .hero-text h1{ font-size:48px; margin-bottom:10px; }
+    .hero-text h3{ font-size:22px; color:#ffd700; }
+    .hero-image img{ width:280px; border-radius:50%; border:6px solid #fff; box-shadow:0 10px 30px rgba(0,0,0,.2); }
 
-    .about{ text-align:center; max-width:800px; margin:auto; line-height:1.8; }
+    section{ padding:60px 0; }
+    .section-title h2{ font-size:32px; color:#111D5E; text-align:center; margin-bottom:40px; }
 
-    .skills{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; }
-    .skill-box{ background:#fff; padding:30px; border-radius:15px; text-align:center; border:2px solid #eee; transition:.3s; }
-    .skill-box:hover{ border-color:#E02252; transform:translateY(-5px); }
-    .skill-box h3{ color:#111D5E; margin-bottom:10px; }
+    .skills, .projects, .blog-posts{ 
+      display:grid; 
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); 
+      gap:20px; 
+    }
 
-    .projects{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px; }
-    .project{ background:#fff; padding:25px; border-radius:15px; border-left:5px solid #E02252; box-shadow:0 5px 15px rgba(0,0,0,.08); }
+    .skill-box, .project, .blog-card{ 
+      background:#fff; 
+      padding:25px; 
+      border-radius:15px; 
+      box-shadow:0 5px 15px rgba(0,0,0,.08); 
+    }
 
-    .blog-posts{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px; }
-    .blog-card{ background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,.08); }
-    .blog-card img{ width:100%; height:200px; object-fit:cover; }
-    .blog-card-content{ padding:20px; }
-    .blog-card h3{ margin-bottom:10px; color:#111D5E; }
-    .blog-card p{ line-height:1.6; color:#555; }
+    .blog-card img{ width:100%; height:200px; object-fit:cover; border-radius:10px 10px 0 0; }
 
-    .contact{ text-align:center; }
-    .contact a{ color:#E02252; text-decoration:none; font-weight:600; }
-
-    footer{ background:#111D5E; color:#fff; text-align:center; padding:30px 0; }
-    .footer-links a{ color:#fff; margin:0 15px; cursor:pointer; }
+    /* Footer */
+    footer{ background:#111D5E; color:#fff; text-align:center; padding:25px 0; }
 
     /* Login Modal */
-    #loginModal{ display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center; }
-    .modal-content{ background:#fff; padding:30px; border-radius:15px; width:90%; max-width:400px; text-align:center; }
-    .modal-content input{ width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:8px; }
+    #loginModal{ 
+      display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+      background:rgba(0,0,0,0.85); z-index:1000; justify-content:center; align-items:center; 
+    }
+    .modal-content{ 
+      background:#fff; padding:25px; border-radius:15px; width:90%; max-width:380px; 
+    }
 
     /* Admin Panel */
-    #adminPanel{ display:none; margin:40px auto; padding:30px; background:#fff; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,.1); max-width:800px; }
-    .admin-form input, .admin-form textarea{ width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:8px; }
+    #adminPanel{ 
+      display:none; background:#fff; padding:25px; border-radius:15px; 
+      box-shadow:0 5px 20px rgba(0,0,0,.1); margin:20px auto; 
+    }
+
+    .admin-form input, .admin-form textarea, .admin-form label{ 
+      width:100%; padding:12px; margin:8px 0; border:1px solid #ddd; border-radius:8px; 
+    }
+
+    button{ cursor:pointer; }
+
+    @media(max-width:768px){
+      .hero-text h1{ font-size:36px; }
+      .hero-text h3{ font-size:20px; }
+      .hero-image img{ width:220px; }
+      section{ padding:50px 0; }
+      .section-title h2{ font-size:28px; }
+    }
+
+    @media(max-width:480px){
+      .hero{ flex-direction:column; text-align:center; }
+      .hero-image{ margin-top:20px; }
+    }
   </style>
 </head>
 <body>
@@ -108,13 +124,11 @@
     </div>
   </section>
 
-  <!-- New Blog Section -->
+<!-- Blog Section -->
   <section id="blog" style="background:#fff;">
     <div class="container">
       <div class="section-title"><h2>Blog Posts</h2></div>
-      <div class="blog-posts" id="blogContainer">
-        <!-- Posts will be added here by JavaScript -->
-      </div>
+      <div class="blog-posts" id="blogContainer"></div>
     </div>
   </section>
 
@@ -139,15 +153,13 @@
       </div>
     </div>
   </footer>
-
-  <!-- Login Modal -->
+<!-- Login Modal -->
   <div id="loginModal">
     <div class="modal-content">
       <h2>Admin Login</h2>
-      <input type="password" id="passwordInput" placeholder="Enter Password" onkeypress="if(event.key==='Enter') login()">
+      <input type="password" id="passwordInput" placeholder="Enter Password (112233)" onkeypress="if(event.key==='Enter') login()">
       <br><br>
-      <button onclick="login()" style="padding:12px 25px; background:#E02252; color:white; border:none; border-radius:8px; cursor:pointer;">Login</button>
-      <button onclick="hideLogin()" style="padding:12px 25px; margin-left:10px; background:#ddd; border:none; border-radius:8px;">Cancel</button>
+      <button onclick="login()" style="background:#E02252; color:white; padding:12px 30px; border:none; border-radius:8px; width:100%;">Login</button>
     </div>
   </div>
 
@@ -156,17 +168,22 @@
     <h2 style="text-align:center; margin-bottom:20px;">Add New Blog Post</h2>
     <div class="admin-form">
       <input type="text" id="postTitle" placeholder="Blog Title">
-      <input type="text" id="postImage" placeholder="Image URL[](https://...)">
-      <textarea id="postDesc" rows="5" placeholder="Description"></textarea>
-      <button onclick="addBlogPost()" style="padding:14px 30px; background:#111D5E; color:white; border:none; border-radius:8px; cursor:pointer;">Add Post</button>
-      <button onclick="logout()" style="padding:14px 30px; background:#E02252; color:white; border:none; border-radius:8px; margin-left:10px;">Logout</button>
+      
+      <label>Upload Image:</label>
+      <input type="file" id="postImageUpload" accept="image/*">
+      <div id="imagePreview" style="margin:15px 0; text-align:center;"></div>
+
+      <textarea id="postDesc" rows="4" placeholder="Description"></textarea>
+      
+      <button onclick="addBlogPost()" style="background:#111D5E; color:white; padding:14px; width:100%; border:none; border-radius:8px; margin-top:10px;">Add Post</button>
+      <button onclick="logout()" style="background:#E02252; color:white; padding:14px; width:100%; border:none; border-radius:8px; margin-top:10px;">Logout</button>
     </div>
   </div>
 
   <script>
     let isLoggedIn = false;
+    let selectedImageBase64 = null;
 
-    // Show Login Modal
     function showLogin() {
       document.getElementById('loginModal').style.display = 'flex';
     }
@@ -176,33 +193,74 @@
       document.getElementById('passwordInput').value = '';
     }
 
-    // Login
     function login() {
-      const pass = document.getElementById('passwordInput').value;
-      if (pass === "112233") {
+      if (document.getElementById('passwordInput').value === "112233") {
         isLoggedIn = true;
         hideLogin();
         document.getElementById('adminPanel').style.display = 'block';
-        alert("✅ Login Successful! You can now add blog posts.");
+        window.scrollTo({ top: document.getElementById('adminPanel').offsetTop - 50, behavior: 'smooth' });
       } else {
         alert("❌ Wrong Password!");
       }
     }
 
-    // Logout
     function logout() {
       isLoggedIn = false;
       document.getElementById('adminPanel').style.display = 'none';
     }
 
-    // Blog Posts Management (using localStorage)
+    // Image Upload + Preview
+    document.getElementById('postImageUpload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      if (file.size > 5 * 1024 * 1024) {
+        alert("Image size must be less than 5MB");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        selectedImageBase64 = event.target.result;
+        document.getElementById('imagePreview').innerHTML = 
+          `<img src="${selectedImageBase64}" style="max-width:100%; max-height:220px; border-radius:10px; border:2px solid #ddd;">`;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function addBlogPost() {
+      if (!isLoggedIn) return alert("Please login first!");
+
+      const title = document.getElementById('postTitle').value.trim();
+      const desc = document.getElementById('postDesc').value.trim();
+
+      if (!title || !desc || !selectedImageBase64) {
+        alert("Title, Description এবং একটি ছবি দিতে হবে!");
+        return;
+      }
+
+      let posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+      posts.unshift({ title, image: selectedImageBase64, description: desc });
+      localStorage.setItem('blogPosts', JSON.stringify(posts));
+
+      // Clear
+      document.getElementById('postTitle').value = '';
+      document.getElementById('postDesc').value = '';
+      document.getElementById('postImageUpload').value = '';
+      document.getElementById('imagePreview').innerHTML = '';
+      selectedImageBase64 = null;
+
+      loadBlogPosts();
+      alert("✅ Post Added Successfully!");
+    }
+
     function loadBlogPosts() {
       const container = document.getElementById('blogContainer');
       container.innerHTML = '';
       const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
 
       if (posts.length === 0) {
-        container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#777;">No blog posts yet.</p>';
+        container.innerHTML = '<p style="text-align:center; color:#777; grid-column:1/-1;">No blog posts yet.</p>';
         return;
       }
 
@@ -211,8 +269,8 @@
         div.className = 'blog-card';
         div.innerHTML = `
           <img src="${post.image}" alt="${post.title}">
-          <div class="blog-card-content">
-            <h3>${post.title}</h3>
+          <div style="padding:15px;">
+            <h3 style="margin:10px 0;">${post.title}</h3>
             <p>${post.description}</p>
           </div>
         `;
@@ -220,38 +278,7 @@
       });
     }
 
-    function addBlogPost() {
-      if (!isLoggedIn) {
-        alert("Please login first!");
-        return;
-      }
-
-      const title = document.getElementById('postTitle').value.trim();
-      const image = document.getElementById('postImage').value.trim();
-      const desc = document.getElementById('postDesc').value.trim();
-
-      if (!title || !image || !desc) {
-        alert("All fields are required!");
-        return;
-      }
-
-      let posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-      posts.unshift({ title, image, description: desc }); // newest first
-      localStorage.setItem('blogPosts', JSON.stringify(posts));
-
-      // Clear form
-      document.getElementById('postTitle').value = '';
-      document.getElementById('postImage').value = '';
-      document.getElementById('postDesc').value = '';
-
-      loadBlogPosts();
-      alert("✅ Blog Post Added Successfully!");
-    }
-
-    // Initialize
-    window.onload = () => {
-      loadBlogPosts();
-    };
+    window.onload = loadBlogPosts;
   </script>
 </body>
 </html>
