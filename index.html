@@ -1,221 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abdul Haque Sayer | SEO & ORM Specialist</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdul Haque Sayer | SEO & ORM Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+    body{ background:#f8f9fc; color:#333; line-height:1.6; }
+    .container{ width:90%; max-width:1200px; margin:auto; }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    header{ background:linear-gradient(135deg,#111D5E,#E02252); color:#fff; padding:80px 0; }
+    .hero{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+    .hero-text h1{ font-size:48px; margin-bottom:10px; }
+    .hero-text h3{ font-size:22px; color:#ffd700; }
+    .hero-image img{ width:280px; border-radius:50%; border:6px solid #fff; box-shadow:0 10px 30px rgba(0,0,0,.2); }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
-body{background:#f8f9fc;color:#333;}
-.container{width:90%;max-width:1200px;margin:auto;}
+    section{ padding:60px 0; }
+    .section-title h2{ font-size:32px; color:#111D5E; text-align:center; margin-bottom:40px; }
 
-header{
-background:linear-gradient(135deg,#111D5E,#E02252);
-color:#fff;
-padding:90px 0;
-}
+    .about{ text-align:center; max-width:800px; margin:auto; }
 
-.hero{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+    .skills, .projects, .blog-posts{ 
+      display:grid; 
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); 
+      gap:20px; 
+    }
 
-.hero-text h1{font-size:50px;}
-.hero-text h3{color:#ffd700;font-size:22px;margin:10px 0;}
+    .skill-box, .project, .blog-card{ 
+      background:#fff; 
+      padding:25px; 
+      border-radius:15px; 
+      box-shadow:0 5px 15px rgba(0,0,0,.08); 
+    }
 
-.btn{
-padding:12px 25px;
-background:#fff;
-color:#111D5E;
-border-radius:30px;
-text-decoration:none;
-display:inline-block;
-margin-top:15px;
-font-weight:600;
-cursor:pointer;
-}
+    .blog-card img{ width:100%; height:200px; object-fit:cover; border-radius:10px 10px 0 0; }
 
-.hero-image img{
-width:280px;border-radius:50%;
-border:5px solid #fff;
-}
+    .btn{ 
+      display:inline-block; margin-top:20px; padding:14px 30px; 
+      background:#fff; color:#111D5E; text-decoration:none; 
+      border-radius:50px; font-weight:600; 
+    }
 
-section{padding:70px 0;}
-.section-title{text-align:center;margin-bottom:40px;}
-.section-title h2{font-size:32px;color:#111D5E;}
+    footer{ background:#111D5E; color:#fff; text-align:center; padding:25px 0; }
+    .footer-links a{ color:#fff; text-decoration:underline; cursor:pointer; }
 
-.skills,.projects,.blog-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
-}
+    /* Login Modal */
+    #loginModal{ 
+      display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+      background:rgba(0,0,0,0.85); z-index:1000; justify-content:center; align-items:center; 
+    }
+    .modal-content{ 
+      background:#fff; padding:25px; border-radius:15px; width:90%; max-width:380px; text-align:center;
+    }
 
-.card{
-background:#fff;
-padding:20px;
-border-radius:12px;
-border-left:5px solid #E02252;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
+    /* Admin Panel */
+    #adminPanel{ 
+      display:none; background:#fff; padding:25px; border-radius:15px; 
+      box-shadow:0 5px 20px rgba(0,0,0,.1); margin:20px auto; max-width:800px;
+    }
 
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:10px;
-margin-bottom:10px;
-}
+    .admin-form input, .admin-form textarea, .admin-form label{ 
+      width:100%; padding:12px; margin:8px 0; border:1px solid #ddd; border-radius:8px; 
+    }
 
-footer{
-background:#111D5E;
-color:#fff;
-text-align:center;
-padding:20px;
-margin-top:40px;
-}
+    button{ cursor:pointer; font-size:16px; }
 
-#adminPanel{
-display:none;
-position:fixed;
-top:20px;
-right:20px;
-background:#fff;
-padding:15px;
-width:300px;
-box-shadow:0 0 20px rgba(0,0,0,0.2);
-border-radius:10px;
-z-index:999;
-}
+    @media(max-width:768px){
+      .hero-text h1{ font-size:36px; }
+      .hero-text h3{ font-size:20px; }
+      .hero-image img{ width:220px; }
+      section{ padding:50px 0; }
+      .section-title h2{ font-size:28px; }
+    }
 
-input,textarea{
-width:100%;
-padding:10px;
-margin:5px 0;
-border:1px solid #ddd;
-border-radius:5px;
-}
-
-textarea{height:80px;}
-</style>
+    @media(max-width:480px){
+      .hero{ flex-direction:column; text-align:center; }
+      .hero-image{ margin-top:20px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<div class="container hero">
-<div class="hero-text">
-<h1>Abdul Haque Sayer</h1>
-<h3>SEO & ORM Specialist</h3>
-<p>Helping brands grow with SEO & Online Reputation Management.</p>
-<a class="btn" onclick="openLogin()">Hire Me</a>
-</div>
+  <header>
+    <div class="container hero">
+      <div class="hero-text">
+        <h1>Abdul Haque Sayer</h1>
+        <h3>SEO & ORM Specialist</h3>
+        <p>Helping brands dominate search engines, build a strong online reputation, and grow their digital presence through proven SEO strategies and ORM solutions.</p>
+        <a href="#contact" class="btn">Hire Me</a>
+      </div>
+      <div class="hero-image">
+        <img src="https://avatars.githubusercontent.com/u/292771007?s=400&v=4" alt="Profile">
+      </div>
+    </div>
+  </header>
 
-<div class="hero-image">
-<img src="https://avatars.githubusercontent.com/u/292771007?s=400&v=4">
-</div>
-</div>
-</header>
+  <section>
+    <div class="container">
+      <div class="section-title"><h2>About Me</h2></div>
+      <div class="about">
+        <p>I am Abdul Haque Sayer, a passionate SEO & Online Reputation Management Specialist. I help businesses improve search rankings, increase organic traffic, and maintain a positive online reputation.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- ABOUT -->
-<section>
-<div class="container">
-<div class="section-title"><h2>About Me</h2></div>
-<p style="text-align:center;max-width:700px;margin:auto;">
-I am SEO & ORM Specialist helping businesses improve ranking and reputation.
-</p>
-</div>
-</section>
+  <section style="background:#fff;">
+    <div class="container">
+      <div class="section-title"><h2>My Expertise</h2></div>
+      <div class="skills">
+        <div class="skill-box"><h3>Technical SEO</h3><p>Website audit, indexing, speed optimization and technical improvements.</p></div>
+        <div class="skill-box"><h3>On-Page SEO</h3><p>Keyword optimization, content strategy and search visibility growth.</p></div>
+        <div class="skill-box"><h3>ORM</h3><p>Online reputation management and brand trust building.</p></div>
+        <div class="skill-box"><h3>Local SEO</h3><p>Google Business Profile optimization and local ranking improvements.</p></div>
+      </div>
+    </div>
+  </section>
 
-<!-- BLOG -->
-<section>
-<div class="container">
-<div class="section-title"><h2>Blog Posts</h2></div>
-<div class="blog-grid" id="blogList"></div>
-</div>
-</section>
+  <section>
+    <div class="container">
+      <div class="section-title"><h2>Recent Projects</h2></div>
+      <div class="projects">
+        <div class="project"><h3>E-commerce SEO Growth</h3><p>Increased organic traffic and improved search rankings through strategic SEO implementation.</p></div>
+        <div class="project"><h3>Brand Reputation Recovery</h3><p>Managed and improved online reputation for a growing business.</p></div>
+        <div class="project"><h3>Local Business Ranking</h3><p>Achieved top local search visibility with Local SEO strategies.</p></div>
+      </div>
+    </div>
+  </section>
 
-<!-- CONTACT -->
-<section>
-<div class="container">
-<div class="section-title"><h2>Contact</h2></div>
-<p style="text-align:center;">
-Email: sayerabdulhaque681@gmail.com <br>
-Phone: 01763795373
-</p>
-</div>
-</section>
+  <section id="blog" style="background:#fff;">
+    <div class="container">
+      <div class="section-title"><h2>Blog Posts</h2></div>
+      <div class="blog-posts" id="blogContainer"></div>
+    </div>
+  </section>
 
-<footer>
-<p>© 2026 Abdul Haque Sayer</p>
-<button class="btn" onclick="openLogin()">Admin Login</button>
-</footer>
+  <section id="contact" style="background:#fff;">
+    <div class="container">
+      <div class="section-title"><h2>Contact Me</h2></div>
+      <div class="contact" style="text-align:center;">
+        <p>Email: sayerabdulhaque681@gmail.com</p>
+        <p>Phone: +8801763795373</p>
+        <p><a href="#">LinkedIn</a> | <a href="#">Facebook</a> | <a href="#">WhatsApp</a></p>
+      </div>
+    </div>
+  </section>
 
-<!-- LOGIN MODAL -->
-<div id="loginModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);">
-<div style="background:#fff;width:300px;margin:120px auto;padding:20px;border-radius:10px;">
-<h3>Admin Login</h3>
-<input type="password" id="pass" placeholder="Password">
-<button class="btn" onclick="login()">Login</button>
-</div>
-</div>
+  <footer>
+    <div class="container">
+      <p>© 2026 Abdul Haque Sayer | SEO & ORM Specialist</p>
+      <div class="footer-links">
+        <a onclick="showLogin()">Admin Login</a>
+      </div>
+    </div>
+  </footer>
 
-<!-- ADMIN PANEL -->
-<div id="adminPanel">
-<h3>Add Blog Post</h3>
-<input type="text" id="title" placeholder="Title">
-<input type="text" id="image" placeholder="Image URL">
-<textarea id="desc" placeholder="Description"></textarea>
-<button class="btn" onclick="addPost()">Publish</button>
-</div>
+  <!-- Login Modal -->
+  <div id="loginModal">
+    <div class="modal-content">
+      <h2>Admin Login</h2>
+      <input type="password" id="passwordInput" placeholder="Enter Password (112233)" onkeypress="if(event.key==='Enter') login()">
+      <br><br>
+      <button onclick="login()" style="background:#E02252; color:white; padding:12px 30px; border:none; border-radius:8px; width:100%;">Login</button>
+    </div>
+  </div>
 
-<script>
+  <!-- Admin Panel -->
+  <div id="adminPanel" class="container">
+    <h2 style="text-align:center; margin-bottom:20px;">Add New Blog Post</h2>
+    <div class="admin-form">
+      <input type="text" id="postTitle" placeholder="Blog Title">
+      
+      <label>Upload Image:</label>
+      <input type="file" id="postImageUpload" accept="image/*">
+      <div id="imagePreview" style="margin:15px 0; text-align:center;"></div>
 
-let posts = JSON.parse(localStorage.getItem("posts")) || [];
+      <textarea id="postDesc" rows="4" placeholder="Write description here..."></textarea>
+      
+      <button onclick="addBlogPost()" style="background:#111D5E; color:white; padding:14px; width:100%; border:none; border-radius:8px; margin-top:10px;">Add Post</button>
+      <button onclick="logout()" style="background:#E02252; color:white; padding:14px; width:100%; border:none; border-radius:8px; margin-top:10px;">Logout</button>
+    </div>
+  </div>
 
-function render(){
-let html = "";
-posts.forEach(p=>{
-html += `
-<div class="card">
-<img src="${p.image}">
-<h3>${p.title}</h3>
-<p>${p.desc}</p>
-</div>`;
-});
-document.getElementById("blogList").innerHTML = html;
-}
+  <script>
+    let isLoggedIn = false;
+    let selectedImageBase64 = null;
 
-render();
+    function showLogin() {
+      document.getElementById('loginModal').style.display = 'flex';
+    }
 
-function openLogin(){
-document.getElementById("loginModal").style.display="block";
-}
+    function hideLogin() {
+      document.getElementById('loginModal').style.display = 'none';
+      document.getElementById('passwordInput').value = '';
+    }
 
-function login(){
-let pass = document.getElementById("pass").value;
-if(pass==="112233"){
-document.getElementById("loginModal").style.display="none";
-document.getElementById("adminPanel").style.display="block";
-}
-else alert("Wrong Password");
-}
+    function login() {
+      if (document.getElementById('passwordInput').value === "112233") {
+        isLoggedIn = true;
+        hideLogin();
+        document.getElementById('adminPanel').style.display = 'block';
+        document.getElementById('adminPanel').scrollIntoView({ behavior: "smooth" });
+      } else {
+        alert("❌ Wrong Password!");
+      }
+    }
 
-function addPost(){
-let title = document.getElementById("title").value;
-let image = document.getElementById("image").value;
-let desc = document.getElementById("desc").value;
+    function logout() {
+      isLoggedIn = false;
+      document.getElementById('adminPanel').style.display = 'none';
+    }
 
-posts.push({title,image,desc});
-localStorage.setItem("posts",JSON.stringify(posts));
+    // Image Upload
+    document.getElementById('postImageUpload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
 
-render();
+      if (file.size > 5 * 1024 * 1024) {
+        alert("Image size must be less than 5MB");
+        return;
+      }
 
-document.getElementById("title").value="";
-document.getElementById("image").value="";
-document.getElementById("desc").value="";
-}
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        selectedImageBase64 = event.target.result;
+        document.getElementById('imagePreview').innerHTML = 
+          `<img src="${selectedImageBase64}" style="max-width:100%; max-height:220px; border-radius:10px; border:2px solid #ddd;">`;
+      };
+      reader.readAsDataURL(file);
+    });
 
-</script>
+    function addBlogPost() {
+      if (!isLoggedIn) return alert("Please login first!");
 
+      const title = document.getElementById('postTitle').value.trim();
+      const desc = document.getElementById('postDesc').value.trim();
+
+      if (!title || !desc || !selectedImageBase64) {
+        alert("Title, Description এবং Image দিতে হবে!");
+        return;
+      }
+
+      let posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+      posts.unshift({ title, image: selectedImageBase64, description: desc });
+      localStorage.setItem('blogPosts', JSON.stringify(posts));
+
+      // Clear Form
+      document.getElementById('postTitle').value = '';
+      document.getElementById('postDesc').value = '';
+      document.getElementById('postImageUpload').value = '';
+      document.getElementById('imagePreview').innerHTML = '';
+      selectedImageBase64 = null;
+
+      loadBlogPosts();
+      alert("✅ Blog Post Added Successfully!");
+    }
+
+    function loadBlogPosts() {
+      const container = document.getElementById('blogContainer');
+      container.innerHTML = '';
+      const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+
+      if (posts.length === 0) {
+        container.innerHTML = '<p style="text-align:center; color:#777; grid-column:1/-1; padding:30px;">No blog posts yet.</p>';
+        return;
+      }
+
+      posts.forEach(post => {
+        const div = document.createElement('div');
+        div.className = 'blog-card';
+        div.innerHTML = `
+          <img src="${post.image}" alt="${post.title}">
+          <div style="padding:15px;">
+            <h3 style="margin:10px 0; color:#111D5E;">${post.title}</h3>
+            <p>${post.description}</p>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // Initialize
+    window.onload = loadBlogPosts;
+  </script>
 </body>
 </html>
